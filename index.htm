@@ -44,12 +44,11 @@
       $g.resourceBaseHref = './';
       $g.ajaxBaseHref = './json/';
     </script>
-    <script src="./javascript/gjs-retarded-dev.js"></script>
-    <script src="./javascript/patch.js"></script>
-    <script src="./javascript/input.js"></script>
-    <script src="./javascript/sprites.js"></script>
-    <script src="./javascript/main.js"></script>
-
+    <script src="./javascript/yabble.js"></script>
+    <script>
+        require.setModuleRoot('./javascript');
+        require.run('main')
+    </script>
     <title>platformer @ gamejs.org</title>
 
   </head>
