@@ -46,15 +46,15 @@ function main() {
 
   // screen setup
   gamejs.display.setCaption("Platformer Demo");
-  this.screen = gamejs.display.setMode(SIZE);
+  var screen = gamejs.display.setMode(SIZE);
 
-  this.sprites = new gamejs.sprite.Group();
-  this.platforms = new gamejs.sprite.Group();
+  var grSprites = new gamejs.sprite.Group();
+  var grPlatforms = new gamejs.sprite.Group();
 
-  sprites.Player.prototype.groups = [this.sprites];
-  sprites.Platform.prototype.groups = [this.sprites, this.platforms];
+  sprites.Player.prototype.groups = [grSprites];
+  sprites.Platform.prototype.groups = [grSprites, grPlatforms];
 
-  sprites.Player.prototype.collision_sprites = this.platforms;
+  sprites.Player.prototype.collision_sprites = grPlatforms;
 
   this.player = new sprites.Player();
 
@@ -67,7 +67,7 @@ function main() {
       controls.handle(event);
     });
 
-    this.sprites.update(controls);
+    grSprites.update(controls);
 
     if(controls.jumping) {
       if(!this.player.jumping) {
@@ -76,8 +76,8 @@ function main() {
       }
     }
 
-    this.screen.fill("#000000");
-    this.sprites.draw(this.screen);
+    screen.fill("#000000");
+    grSprites.draw(screen);
   };
   gamejs.time.fpsCallback(tick, this, 60);
 }
