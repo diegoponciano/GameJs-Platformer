@@ -1,0 +1,3 @@
+create dist with
+
+    $ java -jar yabble/jars/js.jar yabble/lib/yabbler.js -i javascript/ -o dist/
