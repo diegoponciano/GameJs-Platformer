@@ -44,12 +44,24 @@
       $g.resourceBaseHref = './';
       $g.ajaxBaseHref = './json/';
     </script>
-    <script src="./javascript/gjs-retarded-dev.js"></script>
-    <script src="./javascript/patch.js"></script>
-    <script src="./javascript/input.js"></script>
-    <script src="./javascript/sprites.js"></script>
-    <script src="./javascript/main.js"></script>
 
+    <script src="./yabble/lib/yabble.js"></script>
+
+    <script>
+     /**
+      * built dist/ with this command inside the project's directory:
+      *
+      *         $ java -jar yabble/jars/js.jar yabble/lib/yabbler.js -i javascript/ -o dist/
+      *
+      * and then
+      *
+      *   * enable require.useScriptTags()
+      *   * change require.setModuleRoot('./dist/')
+      */
+    // require.useScriptTags()
+    require.setModuleRoot('./javascript/');
+    require.run('main')
+    </script>
     <title>platformer @ gamejs.org</title>
 
   </head>
